@@ -1,0 +1,52 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<style>
+    .stocks-container{
+        display: grid;
+        grid-template-columns: 2.2fr 0.3fr 1fr 1fr 1fr 1fr 1fr 1fr 0.5fr;
+    }
+</style>
+
+<div>
+    <br>
+
+    <div class="stocks-container">
+        <div><h3>&nbsp;&nbsp;Company Name</h3></div>
+        <div><h3>Symbol</h3></div>
+        <div style='text-align:right'><h3 >Last Price</h3></div>
+        <div style='text-align:right'><h3>Open Price</h3></div>
+        <div style='text-align:right'><h3>Close Price</h3></div>
+        <div style='text-align:right'><h3>High Price</h3></div>
+        <div style='text-align:right'><h3>Low Price</h3></div>
+        <div style='text-align:right'><h3>Volume&nbsp;&nbsp;</h3></div>
+        <div style='text-align:right'><h3>&nbsp;</h3></div>
+
+    </div>
+
+    <hr>  
+    {% for stock in stocks %}
+    
+    <div class="stocks-container">
+        <div><p style = "font-size: 20px" >&nbsp;&nbsp;&nbsp;{{stock.name}}</p></div>
+        <div><p style = "font-size: 20px" >{{stock.abbreviation}}</p></div>
+        <div style='text-align:right'><p style = "font-size: 20px" >{{stock.close}} <small style="font-size: 15px">{{stock.percentChange}}%</small></p></div>
+        <div style='text-align:right'><p style = "font-size: 20px" >{{stock.open}}</p></div>
+        <div style='text-align:right'><p style = "font-size: 20px" >{{stock.prevClose}}</p></div>
+        <div style='text-align:right'><p style = "font-size: 20px" >{{stock.dayHigh}}</p></div>
+        <div style='text-align:right'><p style = "font-size: 20px" >{{stock.dayLow}}</p></div>
+        <div style='text-align:right'><p style = "font-size: 20px" >{{stock.volume}}&nbsp;&nbsp;&nbsp;&nbsp;</p></div>
+        <div>
+            <form action="{% url 'buyStock' stock.name %}">
+                {% csrf_token %}
+                <button type="submit">Buy Stock</button>
+            </form>
+        </div>
+    </div>
+
+    <hr>
+    {% endfor %}
+</div>
+
+{% endblock content %}

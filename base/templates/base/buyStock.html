@@ -1,0 +1,13 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<form method="POST" action="">
+{% csrf_token %}
+<p>Buy {{stock.name}} stock.</p>
+<p>$<input type="number" name="price" placeholder="Amount"></p>
+<input type="submit" value="Confirm"/>
+<a href="{{request.META.HTTP_REFERER}}">Go Back</a>
+</form>
+
+{% endblock %}

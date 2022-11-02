@@ -1,0 +1,16 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+{% for property in properties %}
+
+<p>{{property.address}} <tab> ${{property.price}} <tab> Seller: {{property.user}} </p>
+
+<form action="{% url 'buyProperty' property.id %}">
+    {% csrf_token %}
+
+    <button type="submit">Buy Property</button>
+</form>
+
+{% endfor %}
+{% endblock content %}

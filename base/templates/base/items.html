@@ -1,0 +1,16 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+{% for item in items %}
+
+{{item.user}} - {{item.name}}
+
+<form action="{% url 'buyItem' item.id %}">
+    {% csrf_token %}
+
+    <button type="submit">Buy Item</button>
+</form>
+
+{% endfor %}
+{% endblock content %}

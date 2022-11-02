@@ -1,0 +1,7 @@
+{% extends 'main.html' %}
+
+{% block content %}
+{{request.user}}
+<a href="{% url 'stocks' %}">stocks</a>
+
+{% endblock content %}
