@@ -80,8 +80,8 @@ DATABASES = {
     'default': {
         'ENGINE'  : 'django.db.backends.mysql', # <-- UPDATED line 
         'NAME'    : 'cs396db',                 # <-- UPDATED line 
-        'USER'    : 'David',                     # <-- UPDATED line
-        'PASSWORD': 'Davidqiu1',              # <-- UPDATED line
+        'USER'    : 'root',                     # <-- UPDATED line
+        'PASSWORD': 'Davidqiu1.',              # <-- UPDATED line
         'HOST'    : 'localhost',                # <-- UPDATED line
         'PORT'    : '3306',
     }
